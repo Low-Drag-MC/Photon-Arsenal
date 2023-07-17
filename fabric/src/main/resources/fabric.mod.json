@@ -5,7 +5,8 @@
   "name": "${mod_name}",
   "description": "${mod_description}",
   "authors": [
-    "KilaBash"
+    "KilaBash",
+    "Meowsquito"
   ],
   "contact": {
     "homepage": "${mod_url}",
@@ -16,13 +17,10 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.lowdragmc.photon.fabric.PhotonImpl"
+      "com.lowdragmc.photon_arsenal.fabric.PhotonImpl"
     ],
     "client": [
-      "com.lowdragmc.photon.client.fabric.ClientProxyImpl"
-    ],
-    "ldlib_pugin": [
-      "com.lowdragmc.photon.integration.PhotonLDLibPlugin"
+      "com.lowdragmc.photon_arsenal.client.fabric.ClientProxyImpl"
     ]
   },
   "mixins": [
@@ -32,7 +30,6 @@
   "depends": {
     "minecraft": "${minecraft_version}",
     "fabricloader": ">=${fabric_loader_version}",
-    "fabric-api": ">=${fabric_api_version}",
-    "ldlib": ">=${ldlib_version}"
+    "fabric-api": ">=${fabric_api_version}"
   }
 }

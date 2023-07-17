@@ -37,6 +37,7 @@ dependencyResolutionManagement {
         def quiltFlowerVersion = "1.+"
         def macheteVersion = "1.+"
         def ldLibVersion = "1.0.10.b"
+        def photonVersion = "1.0.4.b"
 
         fabric {
             def parchment = version("parchment", parchmentVersion)
@@ -52,6 +53,10 @@ dependencyResolutionManagement {
             library("ldlib-common", "com.lowdragmc.ldlib", "ldlib-common-${minecraftVersion}").versionRef(ldLib)
             library("ldlib-fabric", "com.lowdragmc.ldlib", "ldlib-fabric-${minecraftVersion}").versionRef(ldLib)
 
+            def photon = version("photon", photonVersion)
+            library("photon-common", "com.lowdragmc.photon", "photon-common-${minecraftVersion}").versionRef(photon)
+            library("photon-fabric", "com.lowdragmc.photon", "photon-fabric-${minecraftVersion}").versionRef(photon)
+
             def sodium = version("sodium", sodiumVersion)
             library("sodium", "maven.modrinth", "sodium").versionRef(sodium)
 
@@ -66,6 +71,9 @@ dependencyResolutionManagement {
 
             def ldLib = version("ldlib", ldLibVersion)
             library("ldlib-forge", "com.lowdragmc.ldlib", "ldlib-forge-${minecraftVersion}").versionRef(ldLib)
+
+            def photon = version("photon", photonVersion)
+            library("photon-forge", "com.lowdragmc.photon", "photon-forge-${minecraftVersion}").versionRef(photon)
 
             def rubidium = version("rubidium", rubidiumVersion)
             library("rubidium", "maven.modrinth", "rubidium").versionRef(rubidium)

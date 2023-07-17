@@ -7,7 +7,7 @@ license = "${mod_license}"
 modId = "${mod_id}"
 version = "${version}"
 displayName = "${mod_name}"
-authors = "KilaBash"
+authors = "KilaBash, Meowsquito"
 description = "${mod_description}"
 logoFile = "icon.png"
 displayURL = "${mod_url}"
@@ -25,10 +25,3 @@ mandatory = true
 versionRange = "${minecraft_version}"
 ordering = "NONE"
 side = "BOTH"
-
-[[dependencies.${mod_id}]]
-modId="ldlib"
-mandatory=true
-versionRange="${ldlib_version}"
-ordering="NONE"
-side="BOTH"

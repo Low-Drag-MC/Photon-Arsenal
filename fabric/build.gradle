@@ -88,7 +88,7 @@ dependencies {
 
     // LDLib
     modImplementation(fabric.ldlib.fabric) { transitive = false }
-    include(fabric.ldlib.fabric)
+    modImplementation(fabric.photon.fabric) { transitive = false }
 
     // Iris
     modImplementation(fabric.sodium) { transitive = false }
@@ -108,8 +108,7 @@ processResources {
             "mod_license", mod_license,
             "mod_name", mod_name,
             "mod_description", mod_description,
-            "mod_url", mod_url,
-            "ldlib_version", fabric.versions.ldlib.get() // on fabric, use the entire version, unlike forge
+            "mod_url", mod_url
     )
     properties.forEach((k, v) -> inputs.property(k, v))
 
