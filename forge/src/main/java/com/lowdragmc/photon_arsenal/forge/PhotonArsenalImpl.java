@@ -6,8 +6,8 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod(PhotonArsenal.MOD_ID)
-public class PhotonImpl {
-    public PhotonImpl() {
+public class PhotonArsenalImpl {
+    public PhotonArsenalImpl() {
         PhotonArsenal.init();
         DistExecutor.unsafeRunForDist(() -> ClientProxyImpl::new, () -> CommonProxyImpl::new);
     }

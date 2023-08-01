@@ -87,6 +87,12 @@ dependencies {
     // LDLib
     modImplementation(forge.ldlib.forge) { transitive = false }
     modImplementation(forge.photon.forge) { transitive = false }
+    modImplementation(forge.geckolib.forge)
+    include(forge.photon.forge)
+
+    // Registrate
+    modImplementation(forge.registrate)
+    include(forge.registrate)
 
     // Oculus
     modImplementation(forge.rubidium) { transitive = false }

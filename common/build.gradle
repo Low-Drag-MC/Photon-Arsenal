@@ -36,9 +36,13 @@ dependencies {
     modImplementation fabric.fabricLoader
     modCompileOnly fabric.fabricApi
 
-    // Photon
+    // libs
     modCompileOnly fabric.ldlib.common
     modCompileOnly fabric.photon.common
+    modCompileOnly fabric.geckolib.fabric
+
+    // Registrate
+    modCompileOnly fabric.registrate
 
     // Iris
     modCompileOnly(fabric.sodium) { transitive = false }

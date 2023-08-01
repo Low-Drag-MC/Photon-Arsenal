@@ -89,6 +89,12 @@ dependencies {
     // LDLib
     modImplementation(fabric.ldlib.fabric) { transitive = false }
     modImplementation(fabric.photon.fabric) { transitive = false }
+    modImplementation(fabric.geckolib.fabric)
+    include(fabric.photon.fabric)
+
+    // Registrate
+    modImplementation(fabric.registrate)
+    include(fabric.registrate)
 
     // Iris
     modImplementation(fabric.sodium) { transitive = false }
