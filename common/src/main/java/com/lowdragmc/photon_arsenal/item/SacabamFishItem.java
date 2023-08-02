@@ -3,9 +3,11 @@ package com.lowdragmc.photon_arsenal.item;
 import com.lowdragmc.lowdraglib.gui.factory.HeldItemUIFactory;
 import com.lowdragmc.lowdraglib.gui.modular.ModularUI;
 import com.lowdragmc.photon.client.emitter.IParticleEmitter;
+import com.lowdragmc.photon.client.emitter.beam.BeamEmitter;
 import com.lowdragmc.photon.client.fx.FX;
 import com.lowdragmc.photon.client.fx.FXHelper;
 import com.lowdragmc.photon.client.fx.IEffect;
+import com.lowdragmc.photon.client.particle.BeamParticle;
 import com.lowdragmc.photon_arsenal.gui.FXSelectorWidget;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import lombok.val;
@@ -28,6 +30,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
+import org.joml.Vector3f;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -281,19 +284,24 @@ public abstract class SacabamFishItem extends Item implements GeoItem, HeldItemU
                         }
                     }
 
-
+                    var lookAngle = player.getLookAngle();
                     List<IParticleEmitter> emitters = new ArrayList<>(fx.generateEmitters());
                     for (IParticleEmitter emitter : emitters) {
                         if (!emitter.isSubEmitter()) {
                             emitter.reset();
                             var particle = emitter.self();
                             // setup properties
-                            particle.setMoveless(isMoveless);
-                            particle.setSpeed(speed);
-                            particle.setPhysics(hasPhysics);
-                            particle.setGravity(gravity);
-                            particle.setBounceChance(bounceChance);
-                            particle.setBounceRate(bounceRate);
+                            if (particle instanceof BeamEmitter beam) {
+                                var length = beam.getEnd().length();
+                                beam.setBeam(beam.getPos(), lookAngle.toVector3f().mul(length));
+                            } else {
+                                particle.setMoveless(isMoveless);
+                                particle.setSpeed(speed);
+                                particle.setPhysics(hasPhysics);
+                                particle.setGravity(gravity);
+                                particle.setBounceChance(bounceChance);
+                                particle.setBounceRate(bounceRate);
+                            }
                             emitter.emmitToLevel(new IEffect() {
                                 @Override
                                 public List<IParticleEmitter> getEmitters() {
