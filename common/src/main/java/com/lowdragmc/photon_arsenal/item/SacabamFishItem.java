@@ -284,6 +284,7 @@ public abstract class SacabamFishItem extends Item implements GeoItem, HeldItemU
                         }
                     }
 
+                    
                     var lookAngle = player.getLookAngle();
                     List<IParticleEmitter> emitters = new ArrayList<>(fx.generateEmitters());
                     for (IParticleEmitter emitter : emitters) {
