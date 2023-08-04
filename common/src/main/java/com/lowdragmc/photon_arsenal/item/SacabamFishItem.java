@@ -7,13 +7,11 @@ import com.lowdragmc.photon.client.emitter.beam.BeamEmitter;
 import com.lowdragmc.photon.client.fx.FX;
 import com.lowdragmc.photon.client.fx.FXHelper;
 import com.lowdragmc.photon.client.fx.IEffect;
-import com.lowdragmc.photon.client.particle.BeamParticle;
 import com.lowdragmc.photon_arsenal.gui.FXSelectorWidget;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import lombok.val;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -24,13 +22,11 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.FishingRodItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import org.joml.Vector3f;
 import software.bernie.geckolib.animatable.GeoItem;
 import software.bernie.geckolib.animatable.SingletonGeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -284,7 +280,6 @@ public abstract class SacabamFishItem extends Item implements GeoItem, HeldItemU
                         }
                     }
 
-                    
                     var lookAngle = player.getLookAngle();
                     List<IParticleEmitter> emitters = new ArrayList<>(fx.generateEmitters());
                     for (IParticleEmitter emitter : emitters) {
