@@ -1,7 +1,7 @@
 package com.lowdragmc.photon_arsenal.client;
 
 import com.lowdragmc.photon_arsenal.PhotonArsenal;
-import com.lowdragmc.photon_arsenal.item.SacabamFishItem;
+import com.lowdragmc.photon_arsenal.item.WeaponItem;
 import software.bernie.geckolib.model.DefaultedItemGeoModel;
 import software.bernie.geckolib.renderer.GeoItemRenderer;
 
@@ -10,10 +10,10 @@ import software.bernie.geckolib.renderer.GeoItemRenderer;
  * @date 2023/7/17
  * @implNote SacabamFishItemRenderer
  */
-public class SacabamFishItemRenderer extends GeoItemRenderer<SacabamFishItem> {
+public class WeaponRenderer extends GeoItemRenderer<WeaponItem> {
 
-    public SacabamFishItemRenderer() {
-        super(new DefaultedItemGeoModel<>(PhotonArsenal.id("sacabam_fish")));
+    public WeaponRenderer(String path) {
+        super(new DefaultedItemGeoModel<>(PhotonArsenal.id(path)));
     }
 
 }

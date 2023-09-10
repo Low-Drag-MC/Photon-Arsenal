@@ -26,7 +26,7 @@ import static com.lowdragmc.photon_arsenal.item.SacabamFishItem.*;
  * @date 2023/8/4
  * @implNote SacabamFishFX
  */
-public class SacabamFishFX {
+public class WeaponFX {
     private final static Map<ResourceLocation, FX> CACHE = new HashMap<>();
 
 

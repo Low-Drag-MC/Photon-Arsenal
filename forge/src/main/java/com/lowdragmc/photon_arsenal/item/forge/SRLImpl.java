@@ -1,32 +1,28 @@
 package com.lowdragmc.photon_arsenal.item.forge;
 
 import com.lowdragmc.photon_arsenal.client.WeaponRenderer;
-import com.lowdragmc.photon_arsenal.item.SacabamFishItem;
-import net.minecraft.MethodsReturnNonnullByDefault;
+import com.lowdragmc.photon_arsenal.item.SRL;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.minecraftforge.registries.ForgeRegistries;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.function.Consumer;
 
 /**
  * @author KilaBash
- * @date 2023/7/17
- * @implNote SababamFishItemImpl
+ * @date 2023/9/10
+ * @implNote SRLImpl
  */
-@ParametersAreNonnullByDefault
-@MethodsReturnNonnullByDefault
-public class SacabamFishItemImpl extends SacabamFishItem {
-    protected SacabamFishItemImpl(Properties properties) {
+public class SRLImpl extends SRL {
+    protected SRLImpl(Properties properties) {
         super(properties);
     }
 
-    public static SacabamFishItem create(Item.Properties properties) {
-        return new SacabamFishItemImpl(properties);
+    public static SRL create(Item.Properties properties) {
+        return new SRLImpl(properties);
     }
 
-    // Utilise the existing forge hook to define our custom renderer
     @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
         consumer.accept(new IClientItemExtensions() {
@@ -35,11 +31,10 @@ public class SacabamFishItemImpl extends SacabamFishItem {
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
                 if (this.renderer == null)
-                    this.renderer = new WeaponRenderer("sacabam_fish");
+                    this.renderer = new WeaponRenderer(ForgeRegistries.ITEMS.getKey(SRLImpl.this).getPath());
 
                 return this.renderer;
             }
         });
     }
-
 }
