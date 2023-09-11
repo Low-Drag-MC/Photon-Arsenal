@@ -217,11 +217,6 @@ public abstract class WeaponItem extends Item implements GeoItem, HeldItemUIFact
     }
 
     @Override
-    public UseAnim getUseAnimation(ItemStack stack) {
-        return UseAnim.BOW;
-    }
-
-    @Override
     public boolean isFoil(ItemStack stack) {
         return false;
     }
